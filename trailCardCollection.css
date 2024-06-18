@@ -1,0 +1,160 @@
+.controls {
+    margin: 20px;
+  }
+  
+  .controls input {
+    margin: 0.5rem;
+    width: 50%;
+    text-align: center;
+  }
+  
+  .controls button {
+    margin: 0.5rem;
+    text-align: center;
+  }
+  
+  .confirm-box p {
+    color: black;
+  }
+  
+  .trail-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .card {
+    --bs-card-border-width: 0px;
+    width: 200px;
+    height: 300px;
+    margin: 20px;
+    perspective: 1000px;
+    cursor: pointer;
+    position: relative;
+    background-color: #a72b12;
+  }
+  
+  .card .front,
+  .card .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    transition: transform 0.6s;
+  }
+  
+  .card .front {
+    transform: rotateY(180deg);
+  }
+  
+  .card .back {
+    transform: rotateY(0deg);
+  }
+  
+  .card .front img,
+  .card .back img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .card.flipped .front {
+    transform: rotateY(0deg); /* Show the front */
+  }
+  
+  .card.flipped .back {
+    transform: rotateY(-180deg); /* Hide the back */
+  }
+  
+  .confirm-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 1;
+  }
+  
+  .confirm-box p {
+    margin: 0 0 10px 0;
+  }
+  
+  .confirm-box button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .confirm-box button:last-child {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .card-number {
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    opacity: 0;
+    z-index: 1;
+  }
+  
+  .card:hover .card-number {
+    opacity: 1;
+  }
+  
+  .card.locked .front::before,
+  .card.locked .back::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 2s;
+  }
+  
+  .card:not(.locked) .front::before,
+  .card:not(.locked) .back::before {
+    opacity: 0;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .card {
+      width: 100px;
+      height: 150px;
+      margin: 10px;
+    }
+  
+    .confirm-box {
+      font-size: 0.75em;
+      padding: 10px;
+    }
+  
+    .confirm-box button {
+      margin: 2px;
+      padding: 5px 10px;
+    }
+  
+    .card-number {
+      font-size: 0.75em;
+    }
+  }  

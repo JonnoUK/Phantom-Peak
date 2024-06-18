@@ -1,0 +1,21 @@
+<htmL>
+    <body>
+        <center>
+            <div class="theme--b py-5">
+            <div class="controls">
+                <select id="seasonSelector" onchange="loadCards()">
+        
+                </select>
+            </div>
+            <div class="trail-card-container" id="cardContainer">
+            </div>
+            <div class="controls">
+                <p>Your personal code</p>
+                <input class="text  form-control" type="text" id="codeInput" placeholder="Enter code here">
+                <button class="btn primary btn-brand-primary" onclick="loadCardsFromCode()">Load</button><br>
+                <button class="btn primary btn-brand-primary" onclick="saveCards()">Save</button><button class="btn primary btn-brand-primary" onclick="clearCards()">Clear</button>
+            </div>
+            </div>
+        </center>
+    </body>
+  </html>
