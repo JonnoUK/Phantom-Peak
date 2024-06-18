@@ -1,3 +1,4 @@
+console.log("Loaded Trail Collection File");
 const charMap = "OB@-51'WV34C3+%GZyIS5ab";
 const allChars =
 	"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-=_+[]{}|;:,.<>?";
