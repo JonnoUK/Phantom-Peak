@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div id="loading-container">
+        <div class="loader"></div>
+    </div>
+    <div id="content" style="display: none; opacity: 0;">
+      <header>
+        <div class="menuNavigation">
+          <span></span>
+        </div>
+        <div class="logo">
+          <a href="/login?noload"> 
+            <img src="https://www.phantompeak.com/media/zyrnxsb4/pp_logo_2023-01.png?width=320&format=png&quality=80" alt="Logo">
+          </a>
+          <p style="color: white;">Welcome to the Phantom Peak Tourist Zone</p>
+        </div>
+        <div class="Logout">
+        </div>
+      </header>
+      
+      <div class="container" style="text-align: center;">
+        <h2>PLEASE LOGIN TO ENTER THE TOURIST ZONE</h2>
+        <form action="/login" method="POST">
+            <input type="email" name="email" placeholder="Enter your email" value="{{ email }}" required>
+            <input type="password" name="password" placeholder="Enter your password" required><br>
+            <button id="jtButton" type="submit">Login</button>
+        </form>
+        
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+        
+        <p style="color: white;">New here? <a style="color: #F5C70E;" href="/register">Register</a></p>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='loadingScreen.js') }}"></script>
+    <script>
+      activateLoader(true);
+  </script>
+</body>
+</html>

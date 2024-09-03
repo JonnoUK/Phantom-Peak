@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Builder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 300px;
+            padding: 5px;
+        }
+        #items {
+            margin-top: 20px;
+        }
+        .item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Item Builder</h1>
+    <form id="itemForm">
+        <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="number" id="id" required>
+        </div>
+        <div class="form-group">
+            <label for="front">Front Image URL:</label>
+            <input type="text" id="front" required>
+        </div>
+        <div class="form-group">
+            <label for="back">Back Image URL:</label>
+            <input type="text" id="back" required>
+        </div>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+            <label for="specialCard">Special Card:</label>
+            <input type="checkbox" id="specialCard">
+        </div>
+        <div class="form-group">
+            <label for="requiredCards">Required Cards (comma separated):</label>
+            <textarea id="requiredCards"></textarea>
+        </div>
+        <button type="submit">Add Item</button>
+    </form>
+
+    <div id="items">
+        <h2>Items</h2>
+    </div>
+
+    <script>
+        const items = [];
+
+        document.getElementById('itemForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const id = parseInt(document.getElementById('id').value, 10);
+            const front = document.getElementById('front').value;
+            const back = document.getElementById('back').value;
+            const name = document.getElementById('name').value;
+            const specialCard = document.getElementById('specialCard').checked;
+            const requiredCards = document.getElementById('requiredCards').value.split(',').map(card => card.trim()).filter(card => card);
+
+            const newItem = {
+                id,
+                front,
+                back,
+                name,
+                specialCard,
+                requiredCards
+            };
+
+            items.push(newItem);
+            displayItems();
+        });
+
+        function displayItems() {
+            const itemsContainer = document.getElementById('items');
+            itemsContainer.innerHTML = '<h2>Items</h2>';
+
+            items.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('item');
+                itemDiv.innerHTML = `
+                    {<br>
+                    <strong>id:</strong> ${item.id},<br>
+                    <strong>front:</strong> "${item.front}",<br>
+                    <strong>back:</strong> ${item.back},<br>
+                    <strong>name:</strong> "${item.name}",<br>
+                    <strong>specialCard:</strong> ${item.specialCard},<br>
+                    <strong>requiredCards:</strong> [${item.requiredCards.join(', ')}]<br>
+                    },
+                `;
+                itemsContainer.appendChild(itemDiv);
+            });
+        }
+    </script>
+    <script src="{{ url_for('static', filename='loadingScreen.js') }}"></script>
+    <script>
+      activateLoader(true);
+  </script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+#save-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .loading::after {
+    content: "Saving...";
+  }
+  
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+.wrapper {
+--theme--background-color: #a72b12;
+--theme--background: #a72b12;
+--theme--backdrop-filter: none;
+--theme--color: #fff;
+--theme--color--emphasis: #fff;
+--theme--color--emphasis--invert: #fff;
+--theme--color--subtle: #e6e6e6;
+--theme--link--color: #fff;
+--theme--link--text-decoration: none;
+--theme--link--color--hover: #fff;
+--theme--link--text-decoration--hover: underline;
+--theme--link--forced-text-decoration--color: #fff;
+--theme--link--forced-text-decoration--style: solid;
+--theme--link--forced-text-decoration--color--hover: #000;
+--theme--link--forced-text-decoration--style--hover: solid;
+--theme--decor--color: #f5c70f;
+--theme--rule--color: #ced4da;
+--theme--btn--bg-color: #931441;
+--theme--btn--border-color: #f5c70f;
+--theme--btn--color: #fff;
+--theme--btn--bg-color--hover: #f5c70f;
+--theme--btn--border-color--hover: #931441;
+--theme--btn--color--hover: #a72b12;
+--theme--btn--primary--bg-color: #931441;
+--theme--btn--primary--border-color: #f5c70f;
+--theme--btn--primary--color: #fff;
+--theme--btn--primary--bg-color--hover: #f5c70f;
+--theme--btn--primary--border-color--hover: #931441;
+--theme--btn--primary--color--hover: #a72b12;
+-webkit-backdrop-filter: var(--theme--backdrop-filter, none);
+backdrop-filter: var(--theme--backdrop-filter, none);
+background: var(--theme--background);
+color: var(--theme--color);
+padding-bottom: 5rem !important;
+padding-top: 5rem !important;
+
+}
+
+#welcomeName {
+    font-size: 2rem;
+}
+
+/* Custom select wrapper */
+.custom-select-wrapper {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    width: 60%; /* Adjust as needed */
+}
+
+/* Custom select box */
+.custom-select {
+    color: black;
+    text-align: center;
+    width: 100%; /* Adjust as needed */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the text */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Dropdown arrow */
+.custom-select::after {
+    content: '\25BC'; /* Unicode character for down arrow */
+    position: absolute;
+    right: 10px; /* Adjust to position the arrow */
+    pointer-events: none;
+}
+
+/* Options container */
+.custom-options {
+    color: black;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Option item */
+.custom-option {
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.custom-option:hover {
+    background: #eee;
+    color: #333;
+}
+
+/* Show options when open */
+.custom-select.open .custom-options {
+    display: block;
+}
+
+.controls {
+    margin: 20px;
+}
+
+.controls input {
+    margin: 0.5rem;
+    width: 50%;
+    text-align: center;
+}
+
+.controls button {
+    margin: 0.5rem;
+    text-align: center;
+}
+
+.confirm-box p {
+    color: black;
+}
+
+
+.achievement {
+    width: 15rem;
+    height: 15rem;
+    margin: 20px;
+    perspective: 1000px;
+    cursor: pointer;
+    position: relative;
+    background-color: #a72b12;
+}
+
+.achievement-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 75%;
+    margin: auto;
+    justify-content: center;
+}
+
+.achievement .front {
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+.achievement .front img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+
+.achievement-name {
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    opacity: 0;
+    z-index: 1;
+}
+
+.achievement:hover .achievement-name {
+    opacity: 1;
+}
+
+.achievement.locked .front {
+    content: "";
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    z-index: 1;
+    opacity: 1s;
+    transition: opacity 2s;
+}
+
+.achievement.locked:hover .achievement-name {
+    opacity: 1;
+}
+
+.achievement:not(.locked) .front::before {
+    opacity: 1;
+}
+
+@media only screen and (max-width: 600px) {
+    .achievement {
+        width: 50px;
+        height: 50px;
+        margin: 10px;
+    }
+    .achievement-name {
+        font-size: 0.75em;
+    }
+}
+
+
+
+.trail-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 200px;
+    height: 300px;
+    margin: 20px;
+    perspective: 1000px;
+    cursor: pointer;
+    position: relative;
+    background-color: #a72b12;
+}
+
+.card .front,
+.card .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    transition: transform 0.6s;
+}
+
+.card .front {
+    transform: rotateY(180deg);
+}
+
+.card .back {
+    transform: rotateY(0deg);
+}
+
+.card .front img,
+.card .back img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.card.flipped .front {
+    transform: rotateY(0deg); /* Show the front */
+}
+
+.card.flipped .back {
+    transform: rotateY(-180deg); /* Hide the back */
+}
+
+.confirm-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 1;
+}
+
+.confirm-box p {
+    margin: 0 0 10px 0;
+}
+
+.confirm-box button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #249a3f;
+    color: white;
+}
+.confirm-box button:hover {
+    background-color: #155d26;
+}
+
+.confirm-box button:last-child {
+    background-color: #dc3545;
+}
+.confirm-box button:last-child:hover {
+    background-color: #aa2835;
+}
+
+.card-number {
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    opacity: 0;
+    z-index: 1;
+}
+
+.card:hover .card-number {
+    opacity: 1;
+}
+
+.card.locked .front::before,
+.card.locked .back::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 2s;
+}
+
+.card:not(.locked) .front::before,
+.card:not(.locked) .back::before {
+    opacity: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .achievement {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+    }
+    
+    .card {
+        width: 100px;
+        height: 150px;
+        margin: 10px;
+    }
+
+    .confirm-box {
+        font-size: 0.75em;
+        padding: 10px;
+    }
+
+    .confirm-box button {
+        margin: 2px;
+        padding: 5px 10px;
+    }
+
+    .card-number {
+        font-size: 0.75em;
+    }
+}

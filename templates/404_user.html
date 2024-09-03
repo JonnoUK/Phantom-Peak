@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='user.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div id="loading-container">
+    <div class="loader"></div>
+</div>
+<div id="content" style="display: none; opacity:0;">
+  <header>
+    <div class="menuNavigation">
+      <a class="activeMenuItem" href="/collection">Collection</a>
+      <span>|</span>
+      <a href="/achievements">Achievement Gallery</a>
+    </div>
+    <div class="logo">
+      <img src="https://www.phantompeak.com/media/zyrnxsb4/pp_logo_2023-01.png?width=320&format=png&quality=80">
+      <p id="welcomeName">Welcome back, {{ firstname }}</p>
+    </div>
+    <div class="Logout">
+        <a href="/logout"><button >Logout</button></a>
+    </div>
+  </header>
+    <div style="text-align: center;" class="wrapper">
+    <h1>PAGE NOT FOUND</h1>
+    <p>Lost, Tourist? Click below to find your way.</p>
+        <a class="activeMenuItem" href="/">back to the tourist zone</a>
+        <script src="{{ url_for('static', filename='loadingScreen.js') }}"></script>
+        <script>
+          activateLoader(true);
+      </script>
+</body>
+</html>
